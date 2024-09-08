@@ -10,13 +10,11 @@ To begin working on this project:
    Clone this repository to your local machine using the following command:
 
    ```bash
-   git clone <[repository-url](https://github.com/noorjsdivs/mern_todo_app.git)>
+   https://github.com/noorjsdivs/mern_todo_app.git
 Install Dependencies:
 
 Navigate to the project directory and install the required packages using one of the following package managers:
 
-bash
-Copy code
 npm install
 #### or
 pnpm install
