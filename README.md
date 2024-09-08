@@ -16,6 +16,9 @@ Install Dependencies:
 Navigate to the project directory and install the required packages using one of the following package managers:
 
 npm install
+   ```bash
+   npm install
+```
 #### or
 pnpm install
 #### or
