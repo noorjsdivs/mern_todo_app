@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo Application
+
+Welcome to the Todo Application! This project is designed to help you manage your tasks efficiently while allowing multiple collaborators to work seamlessly in a team environment.
 
 ## Getting Started
 
-First, run the development server:
+To begin working on this project:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository:**  
+   Clone this repository to your local machine using the following command:  
+   ```bash
+   git clone <repository-url>
+Install Dependencies:
+Navigate to the project directory and install the required packages using one of the following package managers:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+bash
+Copy code
+npm install  
+# or  
+pnpm install  
+# or  
+yarn  
+Create a Branch:
+Each collaborator must create their own branch to work on. Use the following command to create and switch to a new branch:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+bash
+Copy code
+git checkout -b <your-branch-name>  
+# or  
+git switch -c <your-branch-name>  
+Run the Application:
+Start the development server using the following command:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+bash
+Copy code
+npm run dev  
+# or  
+yarn run dev  
+# or  
+pnpm dev  
+The application will be running on localhost.
 
-## Learn More
+Push Changes:
+Make sure to push changes from your own branch and avoid pushing directly to the main branch. Use the following command to push your branch:
 
-To learn more about Next.js, take a look at the following resources:
+bash
+Copy code
+git push origin <your-branch-name>  
+Functionalities
+The Todo Application comes with the following features:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Good UI: A clean and user-friendly interface with a perfect color combination.
+Add Todo: Easily add new tasks to your list.
+Delete Todo: Remove tasks that are no longer needed.
+Reset Todo: Clear all tasks from the list.
+Show Todo List: View all tasks in your list.
+Packages Used
+The following packages are used in this project:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+React Redux: For state management.
+Redux Toolkit: To simplify Redux logic.
+Redux Persist: To persist Redux state across sessions.
+Framer Motion: For smooth animations and transitions.
+Feel free to add any other packages as needed to enhance the application.
 
-## Deploy on Vercel
+Technology Stack
+This project is built using Next.js and leverages modern JavaScript libraries and tools to provide a robust development environment.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contribution Guidelines
+All collaborators must create their own branch and avoid pushing directly to the main branch. Ensure that your code follows best practices and is properly tested before pushing.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Happy coding!
