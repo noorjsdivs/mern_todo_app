@@ -34,13 +34,12 @@ yarn
 ### Create a Branch:
 Each collaborator must create their own branch to work on. Use the following command to create and switch to a new branch:
 #### create branch
-git branch <your-branch-name>
+git branch your-branch-name
 
 #### switch or move into your branch
-git checkout <your-branch-name>
-git checkout -b <your-branch-name>
+git checkout your-branch-name
 #### or
-git switch -c <your-branch-name>
+git switch your-branch-name
 
 
 ### Run the Application:
