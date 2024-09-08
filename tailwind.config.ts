@@ -8,12 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      colors:{
+        bodyColor:"#f7f7f7 ",
+      
       },
+      fontFamily: {
+        bodyFont: ["Poppins", "sans-serif"],
+      },
+      boxShadow:{
+        todoShadow: "0px 0px 20px rgba(11,4,209,1)"
+      }
     },
   },
   plugins: [],
 };
+
 export default config;
+

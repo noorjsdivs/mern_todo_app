@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-mono)]">
@@ -13,6 +15,15 @@ export default function Home() {
             push in main branch directly.
           </p>
         </div>
+
+        <div className="flex items-center gap-5">
+          <h1 className=" text-2xl font-semibold">Nazmul Islam</h1>
+        <Link href={"/nazmul"}>
+        <button className="bg-blue-600 py-3 px-2 text-xl rounded text-yellow-300 hover:text-green-500 ">Todo Application</button>
+        </Link>
+
+        </div>
+
         <div>
           <p className="text-lg font-bold my-3 underline underline-offset-2 decoration-[1px]">
             Functionalities included:
