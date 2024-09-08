@@ -69,17 +69,25 @@ git push origin <your-branch-name>
 ## Functionalities
 The Todo Application comes with the following features:
 Good UI: A clean and user-friendly interface with a perfect color combination.
-Add Todo: Easily add new tasks to your list.
-Delete Todo: Remove tasks that are no longer needed.
-Reset Todo: Clear all tasks from the list.
-Show Todo List: View all tasks in your list.
-Packages Used
 
-## The following packages are used in this project:
+Add Todo: Easily add new tasks to your list.
+
+Delete Todo: Remove tasks that are no longer needed.
+
+Reset Todo: Clear all tasks from the list.
+
+Show Todo List: View all tasks in your list.
+
+##Packages Used
+The following packages are used in this project:
 React Redux: For state management.
+
 Redux Toolkit: To simplify Redux logic.
+
 Redux Persist: To persist Redux state across sessions.
+
 Framer Motion: For smooth animations and transitions.
+
 Feel free to add any other packages as needed to enhance the application.
 
 ## Technology Stack
