@@ -1,5 +1,5 @@
 "use client"
-import { addTodo, deleteTodo } from "@/store/todoSlice";
+import { addTodo, deleteTodo, resetTodo } from "@/store/todoSlice";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -15,8 +15,7 @@ const TodoForm = () => {
       const [number, setNumber] = useState("")
 
       const todoData = {
-            //@ts-ignore
-            id : Date.row(),
+            id: Date.now(),
             name,
             email,
             number
@@ -24,76 +23,64 @@ const TodoForm = () => {
 
       const handlaSubmit = (e: React.MouseEvent<HTMLFormElement, MouseEvent>) => {
             e.preventDefault()
-            dispatch(addTodo(todoData))
-            e.preventDefault();
             if (!name || !email || !number) {
-                  toast.error("Please write your todo!");
+                  toast.error("Please fill out all fields!");
                   return
-            } else {
-                  toast.success("Todo added successfully!");
-                  setName("");
-                  setEmail("");
-                  setNumber("")
             }
+            dispatch(addTodo(todoData))
+            toast.success("Todo added successfully!");
+            setName("");
+            setEmail("");
+            setNumber("")
       }
-
-      // const handleDelete = (_id: string) => {
-      //       dispatch(deleteTodo(_id));
-      //       toast.success("Todo deleted successfully!");
-      // }
 
       //@ts-ignore
       const selector = useSelector((state) => state?.todo.todo)
 
       return (
             <div className="bg-red-100 py-10">
-                  <h1 className="text-4xl font-medium text-center text-gray-800"> Todo Application</h1>
-                  <div className="flex justify-between gap-4 h-[530px] px-20">
-                        <form onSubmit={handlaSubmit} className="items-start mt-10 w-1/2">
-                              <div className="flex flex-col gap-5 relative" >
+                  <h1 className="text-3xl sm:text-4xl font-medium text-center text-gray-800">Todo Application</h1>
+                  <div className="flex flex-col lg:flex-row justify-between gap-4 h-auto lg:h-[530px] px-4 lg:px-20">
+                        {/* Form Section */}
+                        <form onSubmit={handlaSubmit} className="items-start mt-10 lg:w-1/2 w-full">
+                              <div className="flex flex-col gap-5 relative">
                                     <input
                                           placeholder="Your Name..."
                                           type="text"
                                           name="name"
                                           value={name}
                                           onChange={(e) => setName(e.target.value)}
-                                          className="py-3 outline-none w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
+                                          className="py-3 outline-none w-full lg:w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
                                     />
-                                    {
-                                          name && (
-                                                <IoMdClose onClick={() => setName("")} className="absolute top-4 right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
-                                          )
-                                    }
+                                    {name && (
+                                          <IoMdClose onClick={() => setName("")} className="absolute top-4 right-4 lg:right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
+                                    )}
                                     <input
                                           type="email"
                                           name="email"
                                           value={email}
                                           onChange={(e) => setEmail(e.target.value)}
                                           placeholder="Enter Your Email..."
-                                          className="py-3 outline-none w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
+                                          className="py-3 outline-none w-full lg:w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
                                     />
-                                    {
-                                          email && (
-                                                <IoMdClose className="absolute top-[85px] right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
-                                          )
-                                    }
+                                    {email && (
+                                          <IoMdClose className="absolute top-[85px] right-4 lg:right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
+                                    )}
                                     <input
                                           placeholder="Phone Number..."
                                           value={number}
                                           name="number"
                                           onChange={(e) => setNumber(e.target.value)}
                                           type="text"
-                                          className="py-3 outline-none w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
+                                          className="py-3 outline-none w-full lg:w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
                                     />
-                                    {
-                                          number && (
-                                                <IoMdClose className="absolute top-[152px] right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
-                                          )
-                                    }
+                                    {number && (
+                                          <IoMdClose className="absolute top-[152px] right-4 lg:right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
+                                    )}
 
                                     {/* Add Todo Button */}
                                     <button
-                                          className={`py-3 rounded-full text-xl mt-2  w-[500px] ${!name || !email || !number
+                                          className={`py-3 rounded-full text-xl mt-2 w-full lg:w-[500px] ${!name || !email || !number
                                                 ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                                                 : "bg-green-300 text-gray-800"
                                                 }`}
@@ -102,60 +89,61 @@ const TodoForm = () => {
                                     >
                                           Add Todo
                                     </button>
-
                               </div>
-                              <Link href={"/"}><h1 className="bg-orange-400 text-center mt-6 py-1 w-36 justify-center lg:ml-44 text-white">Go To Home</h1></Link>
+                              <Link href={"/"}>
+                                    <h1 className="bg-orange-400 text-center mt-6 py-1 w-32 lg:w-36 justify-center ml-24 lg:ml-44 text-white">
+                                          Go To Home
+                                    </h1>
+                              </Link>
                         </form>
-                        <div className="mt-6 w-1/2">
+
+                        {/* Todo List Section */}
+                       
+
+
+                        <div className="mt-6 lg:w-1/2 w-full">
                               <div>
-                                    {
-                                          selector.map((item: any) => (
-                                                <div>
-                                                      <div className="border border-gray-400 py-2 px-4 flex items-center justify-between gap-2 mt-4">
-                                                            <div className="flex items-center gap-2">
-                                                                  <h1 className="text-[16px] font-medium text-green-600">Name : </h1>
-                                                                  <h1 className="text-gray-700 text-[14px]">{item?.name}</h1>
-                                                            </div>
-                                                            <div className="flex items-center gap-2">
-                                                                  <h1 className="text-[16px] font-medium text-green-600">Email : </h1>
-                                                                  <h1 className="text-gray-700 text-[14px]">{item?.email}</h1>
-                                                            </div>
-                                                            <div className="flex items-center gap-2">
-                                                                  <h1 className="text-[16px] font-medium text-green-600">Phone : </h1>
-                                                                  <h1 className="text-gray-700 text-[14px]">{item?.number}</h1>
-                                                            </div>
-                                                            <MdDelete onClick={() => dispatch(deleteTodo(item?._id), toast.success("Deleted successfully!"))} size={25} className="lg:ml-10 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
-                                                      </div>
+                                    {selector.map((item: any) => (
+                                          <div key={item.id} className="border py-2 px-4 border-l-8 border-green-500 flex flex-wrap justify-between gap-2 mt-4">
+                                                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                                                      <h1 className="text-[16px] font-medium text-green-600">Name: </h1>
+                                                      <h1 className="text-gray-700 text-[14px]">{item?.name}</h1>
                                                 </div>
-
-                                          ))
-                                    }
-                                    {/* All Todo Deleted */}
-                                    <div className="ml-48">
-                                          {selector.length > 0 && (
-                                                <div className="mt-4">
-                                                      <button className="bg-green-500 hover:bg-red-500 duration-300 text-white py-2 px-4 rounded">All Todo Deleted</button>
+                                                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                                                      <h1 className="text-[16px] font-medium text-green-600">Email: </h1>
+                                                      <h1 className="text-gray-700 text-[14px]">{item?.email}</h1>
                                                 </div>
-                                          )}
-                                    </div>
-
-                              </div>
-                              {/* Your todo list is Empty! */}
-                              <div className=" mt-24">
-                                    {selector?.length === 0 && (
-                                          <div className='h-12 px-6 rounded'>
-                                                <h1 className='text-center btn-shine text-3xl'>
-                                                      Your todo list is Empty!
-                                                </h1>
+                                                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                                                      <h1 className="text-[16px] font-medium text-green-600">Phone: </h1>
+                                                      <h1 className="text-gray-700 text-[14px]">{item?.number}</h1>
+                                                </div>
+                                                <MdDelete onClick={() => dispatch(deleteTodo(item?.id), toast.success("Todo deleted successfully!"))} size={20} className="text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
                                           </div>
-                                    )}
+                                    ))}
                               </div>
+
+                              {/* All Todo Deleted */}
+                              {selector.length > 0 && (
+                                    <div className="mt-6">
+                                          <button onClick={() => dispatch(resetTodo(), toast.success("All todo deleted successfully!"))} className="bg-green-500 hover:bg-red-500 duration-300 text-white py-2 px-4 lg:ml-48 rounded w-full lg:w-auto">
+                                                Delete All Todos
+                                          </button>
+                                    </div>
+                              )}
+
+                              {/* Empty Todo List */}
+                              {selector?.length === 0 && (
+                                    <div className="mt-24 h-12 px-6 rounded">
+                                          <h1 className="text-center animate-bounce text-gray-700 text-3xl">
+                                                Your todo list is Empty!
+                                          </h1>
+                                    </div>
+                              )}
                         </div>
+
+
                   </div>
-
-
             </div>
-
       );
 };
 

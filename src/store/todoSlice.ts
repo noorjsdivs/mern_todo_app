@@ -12,14 +12,11 @@ export const todoSlice = createSlice({
                   //@ts-ignore
                   state.todo.push(action.payload)
             },
-            // deleteTodo: (state, action) => {
-            //       //@ts-ignore
-            //       state.todo = state.todo.filter((item) => item._id !== action.payload)
-            // },
             deleteTodo: (state, action) => {
                   //@ts-ignore
-                  state.todo = state.todo.filter((item) => item._id !== action.payload)
+                  state.todo = state.todo.filter((item) => item.id !== action.payload)
             },
+
             resetTodo: (state) => {
                   state.todo = []
             }
