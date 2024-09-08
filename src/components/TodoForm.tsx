@@ -134,7 +134,7 @@ const TodoForm = () => {
                               {/* Empty Todo List */}
                               {selector?.length === 0 && (
                                     <div className="mt-24 h-12 px-6 rounded">
-                                          <h1 className="text-center animate-bounce text-gray-700 text-3xl">
+                                          <h1 className="text-center animate-bounce text-gray-700 lg:text-3xl text-xl">
                                                 Your todo list is Empty!
                                           </h1>
                                     </div>
