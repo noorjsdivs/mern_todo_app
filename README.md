@@ -8,48 +8,64 @@ To begin working on this project:
 
 1. **Clone the Repository:**  
    Clone this repository to your local machine using the following command:
-   
+
    ```bash
    git clone <repository-url>
 Install Dependencies:
 Navigate to the project directory and install the required packages using one of the following package managers:
 
-### To install all the paackages run
-npm install  or   pnpm install   or   yarn  
-
+bash
+Copy code
+npm install
+# or
+pnpm install
+# or
+yarn
 Create a Branch:
 Each collaborator must create their own branch to work on. Use the following command to create and switch to a new branch:
 
-git checkout -b <your-branch-name>  
-# or  
-git switch -c <your-branch-name>  
+bash
+Copy code
+git checkout -b <your-branch-name>
+# or
+git switch -c <your-branch-name>
 Run the Application:
 
-###Start the development server using the following command:
-npm run dev  or   pnpm dev   or   yarn run dev    
-The application will be running on [localhost](http://localhost:3000/)
+Start the development server using the following command:
 
-### Push Changes:
+bash
+Copy code
+npm run dev
+# or
+pnpm dev
+# or
+yarn run dev
+The application will be running on localhost.
+
+Push Changes:
 Make sure to push changes from your own branch and avoid pushing directly to the main branch. Use the following command to push your branch:
-git push origin <your-branch-name>  
 
-### Functionalities
+bash
+Copy code
+git push origin <your-branch-name>
+Functionalities
 The Todo Application comes with the following features:
+
 Good UI: A clean and user-friendly interface with a perfect color combination.
 Add Todo: Easily add new tasks to your list.
 Delete Todo: Remove tasks that are no longer needed.
 Reset Todo: Clear all tasks from the list.
 Show Todo List: View all tasks in your list.
 Packages Used
+The following packages are used in this project:
 
-### The following packages are used in this project:
 React Redux: For state management.
 Redux Toolkit: To simplify Redux logic.
 Redux Persist: To persist Redux state across sessions.
 Framer Motion: For smooth animations and transitions.
 Feel free to add any other packages as needed to enhance the application.
 
-### Technology Stack
+Technology Stack
 This project is built using Next.js and leverages modern JavaScript libraries and tools to provide a robust development environment.
 
 Contribution Guidelines
