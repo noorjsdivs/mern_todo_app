@@ -1,4 +1,3 @@
-import todoBG from "./todoBG.jpg";
-import todoimage from "./todo-bg.jpg"
-
-export { todoBG, todoimage };
+import notFoundImage from "./not-found-image.png";
+import emptyImage from "./empty.gif"
+export { notFoundImage , emptyImage};

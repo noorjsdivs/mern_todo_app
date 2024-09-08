@@ -32,7 +32,7 @@ const Header = () => {
       <div className="flex items-center gap-1 rounded-md mt-0 ">
         {menus?.map((menu, index) => (
           <Link href={menu?.link} key={index} className="capitalize  text-white " onClick={() => setActiveLink(menu?.link)}>
-            <p className={`text-xs flex items-center justify-center gap-1 h-10 w-32 rounded-s-md rounded-b-md ${menu?.link === activeLink ? "bg-green-800" : "bg-slate-300 text-black"}`}>{menu?.title}</p>
+            <p className={`text-xs flex items-center justify-center gap-1 h-10 w-32 rounded-s-xl rounded-b-xl ${menu?.link === activeLink ? "bg-green-800" : "bg-slate-300 text-black"}`}>{menu?.title}</p>
           </Link>
         ))}
       </div>

@@ -1,4 +1,6 @@
 import { deleteTodo, resetTodo } from "@/app/redux/TodoSlice";
+import { emptyImage } from "@/assets";
+import Image from "next/image";
 import toast from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +11,7 @@ const TodoList = () => {
 
   return (
     <>
-      {todo?.length >= 1 && (
+      {todo?.length >= 1 ? (
         <div>
           <div className="mt-5 overflow-auto h-60">
             <div className="p-5">
@@ -55,7 +57,10 @@ const TodoList = () => {
             </button>
           </div>
         </div>
-      )}
+      )
+    : <div><p className="text-center mt-10 font-semibold">Todo is empty.!</p> <div>
+      <Image src={emptyImage} alt="empty image" className="w-80 mx-auto rounded-md"/></div></div>
+    }
     </>
   );
 };
