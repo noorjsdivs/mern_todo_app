@@ -11,6 +11,7 @@ To begin working on this project:
 
    ```bash
    git clone https://github.com/noorjsdivs/mern_todo_app.git
+   ```
 Install Dependencies:
 
 Navigate to the project directory and install the required packages using one of the following package managers:
@@ -21,36 +22,49 @@ npm install
 ```
 #### or
 pnpm install
+   ```bash
+   pnpm install
+```
 #### or
 yarn
+   ```bash
+   yarn
+```
 
-Create a Branch:
+### Create a Branch:
 Each collaborator must create their own branch to work on. Use the following command to create and switch to a new branch:
+#### create branch
+git branch <your-branch-name>
 
-bash
-Copy code
+#### switch or move into your branch
+git checkout <your-branch-name>
 git checkout -b <your-branch-name>
 #### or
 git switch -c <your-branch-name>
-Run the Application:
 
+
+### Run the Application:
 Start the development server using the following command:
 
-bash
-Copy code
 npm run dev
+   ```bash
+      npm run dev
+```
 #### or
 pnpm dev
+   ```bash
+      pnpm dev
+```
 #### or
 yarn run dev
-
+   ```bash
+      yarn run dev
+```
 The application will be running on [localhost.](http://localhost:3000/)
 
-Push Changes:
+### Push Changes:
 Make sure to push changes from your own branch and avoid pushing directly to the main branch. Use the following command to push your branch:
 
-bash
-Copy code
 git push origin <your-branch-name>
 
 ## Functionalities
