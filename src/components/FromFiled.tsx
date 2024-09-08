@@ -6,7 +6,7 @@
 import { useState } from "react";
 import { State, Todo } from "../../type";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, remove } from "./Redux/todoSlice";
+import { addTodo, removeTodos } from "./Redux/todoSlice";
 import toast from "react-hot-toast";
 import TodoList from "./TodoList";
 
@@ -20,7 +20,8 @@ const FormFlied = () => {
   const [roll, setRoll] = useState("");
   const [number, setNumber] = useState("");
   const dispatch = useDispatch();
-  const selector = useSelector((state:State) => state.name.todo);
+  const selector = useSelector((state:State) => state?.todo.todos);
+  console.log(selector,"selector")
  
 
   
@@ -140,7 +141,7 @@ const FormFlied = () => {
   </div>
 
   <div>
-    {selector.length > 0 ? (
+    {selector?.length > 0 ? (
       <>
         {selector.map((item: Todo, index: number) => (
           <TodoList key={index} item={item} />
@@ -148,7 +149,7 @@ const FormFlied = () => {
 
         <h1
           onClick={() =>
-            dispatch(remove(), toast.success("All todo deleted successfully"))
+            dispatch(removeTodos(), toast.success("All todo deleted successfully"))
           }
           className="text-2xl font-bold hover:text-red-600 duration-500 text-center mt-7 border-2 border-green-500 bg-transparent hover:bg-green-500 text-amber-500 rounded-md p-1 cursor-pointer"
         >
