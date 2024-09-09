@@ -1,5 +1,7 @@
 
-import Layoyt from "./conponent/Layoyt";
+import HomePage from "./conponent/HomePage";
+
+
 
 export default function Home() {
   return (
@@ -74,7 +76,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <Layoyt/>
+        <HomePage/>
       </div>
     </div>
   );

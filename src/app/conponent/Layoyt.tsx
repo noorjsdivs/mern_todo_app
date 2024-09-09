@@ -1,11 +1,12 @@
-import React from 'react'
-import HomePage from './HomePage'
+"use client"
 
-const Layoyt = () => {
+import React from 'react'
+import { store } from '../redux/store'
+import { Provider } from 'react-redux'
+
+const Layoyt = ({children}:{children:React.ReactNode}) => {
   return (
-    <div>
-        <HomePage/>
-    </div>
+    <Provider store={store}>{children}</Provider>
   )
 }
 
