@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from 'framer-motion';
 
 const TodoForm = () => {
 
@@ -41,7 +42,7 @@ const TodoForm = () => {
             <div className="bg-red-100 py-10">
                   <h1 className="text-3xl sm:text-4xl font-medium text-center text-gray-800">Todo Application</h1>
                   <div className="flex flex-col lg:flex-row justify-between gap-4 h-auto lg:h-[530px] px-4 lg:px-20">
-                        {/* Form Section */}
+                        {/* Form Section Start*/}
                         <form onSubmit={handlaSubmit} className="items-start mt-10 lg:w-1/2 w-full">
                               <div className="flex flex-col gap-5 relative">
                                     <input
@@ -64,7 +65,7 @@ const TodoForm = () => {
                                           className="py-3 outline-none w-full lg:w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
                                     />
                                     {email && (
-                                          <IoMdClose className="absolute top-[85px] right-4 lg:right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
+                                          <IoMdClose onClick={() => setEmail("")} className="absolute top-[85px] right-4 lg:right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
                                     )}
                                     <input
                                           placeholder="Phone Number..."
@@ -75,7 +76,7 @@ const TodoForm = () => {
                                           className="py-3 outline-none w-full lg:w-[500px] pr-10 pl-4 rounded placeholder:text-gray-700"
                                     />
                                     {number && (
-                                          <IoMdClose className="absolute top-[152px] right-4 lg:right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
+                                          <IoMdClose onClick={() => setNumber("")} className="absolute top-[152px] right-4 lg:right-16 text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
                                     )}
 
                                     {/* Add Todo Button */}
@@ -96,15 +97,20 @@ const TodoForm = () => {
                                     </h1>
                               </Link>
                         </form>
-
-                        {/* Todo List Section */}
-                       
+                        {/* Form Section End */}
 
 
+
+                        {/* Todo List Section Start */}
                         <div className="mt-6 lg:w-1/2 w-full">
                               <div>
                                     {selector.map((item: any) => (
-                                          <div key={item.id} className="border py-2 px-4 border-l-8 border-green-500 flex flex-wrap justify-between gap-2 mt-4">
+                                          <motion.div
+                                                initial={{ opacity: 0, y: -20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.5 }}
+                                                key={item.id}
+                                                className="border py-2 px-4 border-l-8 border-green-500 flex flex-wrap justify-between gap-2 mt-4">
                                                 <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                                                       <h1 className="text-[16px] font-medium text-green-600">Name: </h1>
                                                       <h1 className="text-gray-700 text-[14px]">{item?.name}</h1>
@@ -118,11 +124,12 @@ const TodoForm = () => {
                                                       <h1 className="text-gray-700 text-[14px]">{item?.number}</h1>
                                                 </div>
                                                 <MdDelete onClick={() => dispatch(deleteTodo(item?.id), toast.success("Todo deleted successfully!"))} size={20} className="text-gray-700 hover:text-red-500 cursor-pointer duration-300" />
-                                          </div>
+                                          </motion.div>
                                     ))}
                               </div>
 
-                              {/* All Todo Deleted */}
+
+                              {/* All Todo Deleted Start */}
                               {selector.length > 0 && (
                                     <div className="mt-6">
                                           <button onClick={() => dispatch(resetTodo(), toast.success("All todo deleted successfully!"))} className="bg-green-500 hover:bg-red-500 duration-300 text-white py-2 px-4 lg:ml-48 rounded w-full lg:w-auto">
@@ -130,8 +137,10 @@ const TodoForm = () => {
                                           </button>
                                     </div>
                               )}
+                              {/* All Todo End */}
 
-                              {/* Empty Todo List */}
+
+                              {/* Empty Todo List Start */}
                               {selector?.length === 0 && (
                                     <div className="mt-24 h-12 px-6 rounded">
                                           <h1 className="text-center animate-bounce text-gray-700 lg:text-3xl text-xl">
@@ -139,8 +148,10 @@ const TodoForm = () => {
                                           </h1>
                                     </div>
                               )}
-                        </div>
+                              {/* Empty Todo List End */}
 
+                        </div>
+                        {/* Todo List Section End */}
 
                   </div>
             </div>

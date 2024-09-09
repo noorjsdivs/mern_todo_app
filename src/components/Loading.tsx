@@ -1,5 +1,3 @@
-import Image from "next/image";
-import React from "react";
 
 const Loading = () => {
       return <div className="py-72 max-w-screen-xl mx-auto">
