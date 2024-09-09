@@ -23,13 +23,13 @@ const TodoForm = () => {
   };
 
   return (
-    <div className="w-[600px] bg-gradient-to-r from-cyan-100 via-blue-100 to-blue-300 rounded-md px-10 h-96 mt-0 md:-mt-60">
-      <div className="relative w-[400px] mt-10">
+    <div className="w-[1200px] bg-gradient-to-r from-green-900 via-green-400 to-blue-400 rounded-md  h-[500px] mt-0 md:-mt-60">
+      <div className="relative w-[600px] md:w-[800px] mt-10 mx-auto">
         <form >
           <input
             type="text"
             placeholder="Enter todo..."
-            className="outline-none px-7 border border-green-800 rounded-l-md h-10 w-full"
+            className="outline-none px-7 border border-green-800 rounded-l-md h-10 w-full -ml-20"
             value={todo}
             onChange={(e) => {
               setTodo(e.target.value);
@@ -41,7 +41,7 @@ const TodoForm = () => {
             </span>
           )}
           <button
-            className="bg-green-800 text-white h-10 w-32 rounded-r-md absolute top-0 -right-32 flex items-center justify-center gap-2"
+            className="bg-green-800 text-white h-10 w-32 rounded-r-md absolute top-0 -right-12 flex items-center justify-center gap-2"
             type="submit"
             onClick={handleAddTodo}
           >

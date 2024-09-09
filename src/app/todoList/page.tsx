@@ -8,9 +8,9 @@ const todoListPage = () => {
   console.log("todooo", todo);
   return (
     <Container>
-      <div className="w-[600px] bg-gradient-to-r from-cyan-100 via-blue-100 to-blue-300 rounded-md px-10 h-96 mt-0 md:-mt-60">
-        <h2 className="text-xl font-semibold text-center mt-4">Todo Lists...</h2>
-        <div className="relative w-[600px] mt-5 -ml-10">
+      <div className="w-[1200px] bg-gradient-to-l from-green-900 via-green-400 to-blue-400 rounded-md  h-[500px] mt-0 md:-mt-60">
+        <h2 className="text-xl font-bold text-white text-center mt-4">Todo Lists...</h2>
+        <div className=" mt-5 -ml-10">
           <TodoList />
         </div>
       </div>

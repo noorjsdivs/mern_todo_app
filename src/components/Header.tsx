@@ -27,7 +27,7 @@ const Header = () => {
     
     >
       <div>
-        <h3 className="text-3xl font-semibold mb-10">Todo App</h3>
+        <h3 className="text-3xl font-extrabold mb-10">Todo App</h3>
       </div>
       <div className="flex items-center gap-1 rounded-md mt-0 ">
         {menus?.map((menu, index) => (

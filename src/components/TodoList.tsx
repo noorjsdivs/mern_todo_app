@@ -12,7 +12,7 @@ const TodoList = () => {
   return (
     <>
       {todo?.length >= 1 ? (
-        <div>
+        <div className="w-[600px] mx-auto">
           <div className="mt-5 overflow-auto h-60">
             <div className="p-5">
               <div className="overflow-hidden w-full rounded-md">
@@ -58,8 +58,8 @@ const TodoList = () => {
           </div>
         </div>
       )
-    : <div><p className="text-center mt-10 font-semibold">Todo is empty.!</p> <div>
-      <Image src={emptyImage} alt="empty image" className="w-80 mx-auto rounded-md"/></div></div>
+    : <div><p className="text-center mt-10 font-bold mb-4">Todo is empty.!</p> <div>
+      <Image src={emptyImage} alt="empty image" className="w-80 lg:w-[700px] h-10 lg:h-80 mx-auto rounded-md"/></div></div>
     }
     </>
   );
