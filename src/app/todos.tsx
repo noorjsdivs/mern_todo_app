@@ -1,9 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { addTodo } from "@/store/todos/todoSlice";
+import { addTodo, deleteAllTodo } from "@/store/todos/todoSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 function Home() {
   const [text, setText] = useState("");
@@ -20,12 +21,20 @@ function Home() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     dispatch(addTodo({ text, time }));
+    toast.success("Todo Added", {
+      autoClose: 2000,
+    });
 
     setText("");
   }
+
+  function deleteAll() {
+    toast.success("All Todo Delete SuccessFully");
+    dispatch(deleteAllTodo());
+  }
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-3 gap-5 max-w-[800px]">
+      <div className="grid grid-cols-4 gap-5 max-w-[950px]">
         <Input
           required
           onChange={handleText}
@@ -39,11 +48,16 @@ function Home() {
           onChange={handleTime}
           value={time}
           type="datetime-local"
-          className=""
+          className="w-56"
         />
-        <Button type="submit" className="w-20">
-          Submit
-        </Button>
+        <div className=" flex gap-3">
+          <Button type="submit" className="w-20">
+            Submit
+          </Button>
+          <Button onClick={deleteAll} variant={"destructive"} className="w-24 ">
+            Delete All
+          </Button>
+        </div>
       </div>
     </form>
   );

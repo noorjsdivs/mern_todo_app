@@ -5,6 +5,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/store";
 import { removeTodo } from "@/store/todos/todoSlice";
+import { toast } from "react-toastify";
 
 const TodosList: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -12,6 +13,9 @@ const TodosList: React.FC = () => {
 
   // Handle deleting a todo
   const handleDelete = (id: string) => {
+    toast.error("Todo Removed", {
+      autoClose: 2000,
+    });
     dispatch(removeTodo(id));
   };
 
@@ -23,7 +27,9 @@ const TodosList: React.FC = () => {
       {/* Grid container for todos */}
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {allTodos.length === 0 ? (
-          <p className="text-center text-gray-500 col-span-full">No todos available.</p>
+          <p className="text-center text-gray-500 col-span-full">
+            No todos available.
+          </p>
         ) : (
           allTodos.map((item) => (
             <div
@@ -33,7 +39,9 @@ const TodosList: React.FC = () => {
               {/* Todo Content */}
               <div className="mb-3">
                 <h2 className="text-xl font-semibold">{item.text}</h2>
-                <p className="text-gray-500">{new Date(item.time).toLocaleString()}</p>
+                <p className="text-gray-500">
+                  {new Date(item.time).toLocaleString()}
+                </p>
               </div>
 
               {/* Action Button */}

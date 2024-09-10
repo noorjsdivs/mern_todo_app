@@ -1,6 +1,7 @@
 import React from "react";
 import Todos from "./todos";
 import TodosList from "./TodosList";
+import { ToastContainer } from "react-toastify";
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
       <div>
         <TodosList />
       </div>
+      <ToastContainer />
     </>
   );
 };
