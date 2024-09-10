@@ -18,8 +18,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-96 lg:w-[560px] mx-auto my-8 text-gray-400 ">
-      <p className="text-sm  text-justify">
+    <footer className="w-96 lg:w-[560px] mx-auto my-8 text-white/90 ">
+      <p className="text-sm md:text-md  text-justify tracking-wide ">
         I am a web developer with 2+ years of experience in React. I have a
         strong foundation in front-end & back-end development and I am skilled
         creatin user-friendly and responsive web applicitions using React and
