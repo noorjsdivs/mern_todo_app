@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -29,7 +30,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Layout>{children}</Layout>
+        <Layout>
+          {children}
+
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: "#7F007F",
+                color: "#FFFFFF",
+              },
+            }}
+          />
+        </Layout>
       </body>
     </html>
   );
