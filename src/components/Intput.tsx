@@ -22,12 +22,16 @@ const Intput = () => {
   };
 
   return (
-    <div className="w-full h-full bg-purple-600 text-white/85 p-4  rounded-lg">
-      <div className=" flex justify-center items-center">
-        <form onSubmit={formHandle} action="#" className="relative">
+    <div className=" mx-auto h-full text-white/85 my-8  lg:mt-16 px-10   pt-6 pb-2 border-[1px] border-solid border-white/90">
+      <div>
+        <form
+          onSubmit={formHandle}
+          action="#"
+          className="flex justify-center items-center gap-3 relative"
+        >
           <input
             type="text"
-            className="w-72 p-2 outline-none rounded-md text-black border-2 border-solid border-yellow-300 hover:border-blue-900 duration-300"
+            className="w-72 p-2 mb-2 outline-none rounded-md text-black border-2 border-solid border-yellow-300 hover:border-blue-900 duration-300"
             placeholder="Input your todo..."
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
@@ -40,7 +44,7 @@ const Intput = () => {
           )}
           <button
             type="submit"
-            className="ml-2 px-4 py-2 border border-solid border-gray-400 rounded-md hover:border-gray-500 duration-300 hover:bg-slate-200 hover:text-black"
+            className=" px-4 py-2 border border-solid border-gray-400 rounded-md hover:border-gray-500 duration-300 hover:bg-slate-200 hover:text-black"
           >
             Add Todo
           </button>

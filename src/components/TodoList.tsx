@@ -16,7 +16,7 @@ const TodoList = () => {
           <TodoItem key={item?._id} item={item} />
         ))}
       </div>
-      {todoList?.length > 0 && (
+      {todoList?.length > 0 ? (
         <button
           onClick={() => dispitch(removeTodo())}
           className="bg-blue-800 px-4 py-2 rounded-lg hover:shadow-sm hover:shadow-slate-400 duration-300 opacity-80 
@@ -24,6 +24,14 @@ const TodoList = () => {
         >
           Remove All Todo
         </button>
+      ) : (
+        <div
+          className="max-w-96 mx-auto bg-green-950 text-white/90 p-3 my-2 rounded-lg 
+      hover:shadow-md hover:shadow-slate-400 duration-300 opacity-60 
+      hover:opacity-100 text-center"
+        >
+          Your todo is empty !
+        </div>
       )}
     </div>
   );
