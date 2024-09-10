@@ -20,30 +20,32 @@ function Home() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     dispatch(addTodo({ text, time }));
+
+    setText("");
   }
   return (
-    <div className="flex justify-center h-[60vh] items-center">
-      <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-3 gap-5 max-w-[800px]">
-          <Input
-            onChange={handleText}
-            type="text"
-            value={text}
-            placeholder="Type your Todo"
-            className=" "
-          />
-          <Input
-            onChange={handleTime}
-            value={time}
-            type="datetime-local"
-            className=""
-          />
-          <Button type="submit" className="w-20">
-            Submit
-          </Button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-3 gap-5 max-w-[800px]">
+        <Input
+          required
+          onChange={handleText}
+          type="text"
+          value={text}
+          placeholder="Type your Todo"
+          className=" "
+        />
+        <Input
+          required
+          onChange={handleTime}
+          value={time}
+          type="datetime-local"
+          className=""
+        />
+        <Button type="submit" className="w-20">
+          Submit
+        </Button>
+      </div>
+    </form>
   );
 }
 
