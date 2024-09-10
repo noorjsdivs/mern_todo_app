@@ -16,16 +16,23 @@ const Footer = () => {
       href: "https://www.linkedin.com/in/md-sujon-islam-ss/",
     },
   ];
+
   return (
-    <footer className="w-full text-gray-400 ">
-      <p className="text-sm text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis libero
-        eaque officiis. Aperiam nostrum debitis eius, ullam nesciunt ex in sit
-        omnis. Ea fugiat commodi quos a aspernatur accusamus sit!
+    <footer className="w-96 lg:w-[560px] mx-auto my-8 text-gray-400 ">
+      <p className="text-sm  text-justify">
+        I am a web developer with 2+ years of experience in React. I have a
+        strong foundation in front-end & back-end development and I am skilled
+        creatin user-friendly and responsive web applicitions using React and
+        its ecosystem
       </p>
-      <div className="flex items-center justify-center gap-2 mt-2">
+      <div className="flex items-center justify-center gap-4 mt-2">
         {footerArray.map((item, index) => (
-          <Link key={index} href={item?.href} target="blank">
+          <Link
+            className="text-3xl text-white/90 rounded-full hover:text-yellow-300 duration-300"
+            key={index}
+            href={item?.href}
+            target="blank"
+          >
             {item?.icon}
           </Link>
         ))}
