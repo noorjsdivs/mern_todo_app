@@ -19,7 +19,7 @@ const TodoList = () => {
       {todoList?.length > 0 ? (
         <button
           onClick={() => dispitch(removeTodo())}
-          className="bg-blue-800 px-4 py-2 rounded-lg hover:shadow-sm hover:shadow-slate-400 duration-300 opacity-80 
+          className="bg-blue-800 text-white/90 px-4 py-2 rounded-lg hover:shadow-sm hover:shadow-slate-400 duration-300 opacity-80 
       hover:opacity-100 hover:skew-x-3 w-44 mx-auto mt-3"
         >
           Remove All Todo
