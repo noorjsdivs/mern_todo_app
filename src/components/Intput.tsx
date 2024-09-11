@@ -51,7 +51,6 @@ const Intput = () => {
         </form>
       </div>
       <TodoList />
-      
     </div>
   );
 };
