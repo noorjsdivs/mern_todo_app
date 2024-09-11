@@ -19,7 +19,7 @@ const TodoItem = ({ item }: Item) => {
       className="flex flex-col "
     >
       <ul
-        className="bg-green-950 text-white/90 p-3 my-1 rounded-lg 
+        className="w-full bg-green-950 text-white/90 p-3 my-1 rounded-lg 
       hover:shadow-md hover:shadow-slate-400 duration-300 opacity-80 
       hover:opacity-100 hover:skew-x-6 hover:translate-x-2 
       flex justify-between items-center group relative"
@@ -28,6 +28,7 @@ const TodoItem = ({ item }: Item) => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
+          className="w-[400px] px-2 overflow-x-clip"
         >
           {item?.todo}
         </motion.li>

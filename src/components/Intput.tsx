@@ -31,7 +31,7 @@ const Intput = () => {
         >
           <input
             type="text"
-            className="w-72 p-2 mb-2 outline-none rounded-md text-black border-2 border-solid border-yellow-300 hover:border-blue-900 duration-300"
+            className="w-96 p-2 mb-2 outline-none rounded-md text-black border-2 border-solid border-yellow-300 hover:border-blue-900 duration-300"
             placeholder="Input your todo..."
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
