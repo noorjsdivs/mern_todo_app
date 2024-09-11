@@ -32,7 +32,7 @@ const Footer = () => {
         </p>{" "}
         <Link
           href={pathName === "/" ? "/todolist" : "/"}
-          className="px-2 py-1 border-[1px] border-solid border-yellow-400 rounded-md "
+          className="px-2 py-1 border-[1px] border-solid border-yellow-400 rounded-md hover:bg-slate-800 hover:text-white/90 duration-300"
         >
           {pathName === "/" ? "Go to todo list" : "Go to home"}
         </Link>
