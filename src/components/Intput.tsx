@@ -22,7 +22,7 @@ const Intput = () => {
   };
 
   return (
-    <div className=" mx-auto h-full text-white/85 my-8  lg:mt-16 px-10   pt-6 pb-2 border-[1px] border-solid border-white/70 rounded-lg">
+    <div className=" mx-auto  text-white/85 my-8  lg:mt-16 px-10   pt-6 pb-2 border-[1px] border-solid border-white/70 rounded-lg">
       <div>
         <form
           onSubmit={formHandle}
@@ -51,6 +51,7 @@ const Intput = () => {
         </form>
       </div>
       <TodoList />
+      
     </div>
   );
 };

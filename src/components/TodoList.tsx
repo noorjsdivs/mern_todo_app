@@ -1,6 +1,7 @@
 "use client";
 
 import { removeTodo } from "@/app/redux/todoSlicer";
+import { usePathname } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../type";
 import TodoItem from "./TodoItem";
@@ -8,13 +9,22 @@ import TodoItem from "./TodoItem";
 const TodoList = () => {
   const dispitch = useDispatch();
   const { todoList } = useSelector((state: State) => state?.todo);
+  const pathName = usePathname();
 
   return (
     <div>
-      <div>
-        {todoList?.map((item) => (
-          <TodoItem key={item?._id} item={item} />
-        ))}
+      <div
+        className={` ${
+          pathName === "/"
+            ? todoList?.length > 5 && "h-80 overflow-scroll"
+            : "h-auto"
+        } `}
+      >
+        <div>
+          {todoList?.map((item) => (
+            <TodoItem key={item?._id} item={item} />
+          ))}
+        </div>
       </div>
       {todoList?.length > 0 ? (
         <button

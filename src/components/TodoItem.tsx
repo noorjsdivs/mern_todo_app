@@ -28,7 +28,7 @@ const TodoItem = ({ item }: Item) => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="w-[400px] px-2 overflow-x-clip"
+          className="w-[360px] px-2 overflow-x-clip"
         >
           {item?.todo}
         </motion.li>
