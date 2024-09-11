@@ -8,8 +8,3 @@ export const store = configureStore({
   },
 });
 
-// Define RootState type based on the store's state
-export type RootState = ReturnType<typeof store.getState>;
-
-// Define AppDispatch type for type-safe dispatching
-export type AppDispatch = typeof store.dispatch;

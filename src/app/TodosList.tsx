@@ -3,13 +3,15 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "@/store";
-import { removeTodo } from "@/store/todos/todoSlice";
+import { removeTodo, TodoState } from "@/store/todos/todoSlice";
 import { toast } from "react-toastify";
 
+interface stateType {
+  todos: TodoState;
+}
 const TodosList: React.FC = () => {
-  const dispatch: AppDispatch = useDispatch();
-  const allTodos = useSelector((state: RootState) => state.todos);
+  const dispatch = useDispatch();
+  const allTodos = useSelector((state: stateType) => state.todos);
 
   // Handle deleting a todo
   const handleDelete = (id: string) => {
