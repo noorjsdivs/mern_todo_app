@@ -17,6 +17,7 @@ const TodosList: React.FC = () => {
   const handleDelete = (id: string) => {
     toast.error("Todo Removed", {
       autoClose: 2000,
+      position:"bottom-right"
     });
     dispatch(removeTodo(id));
   };

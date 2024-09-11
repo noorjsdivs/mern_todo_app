@@ -22,42 +22,44 @@ function Home() {
     e.preventDefault();
     dispatch(addTodo({ text, time }));
     toast.success("Todo Added", {
-      autoClose: 2000,
+      autoClose: 1500,
+      position: "bottom-right",
     });
 
     setText("");
   }
 
   function deleteAll() {
-    toast.success("All Todo Delete SuccessFully");
+    toast.success("Todo Added", {
+      autoClose: 1500,
+      position: "bottom-right",
+    });
     dispatch(deleteAllTodo());
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-4 gap-5 max-w-[950px]">
-        <Input
-          required
-          onChange={handleText}
-          type="text"
-          value={text}
-          placeholder="Type your Todo"
-          className=" "
-        />
-        <Input
-          required
-          onChange={handleTime}
-          value={time}
-          type="datetime-local"
-          className="w-56"
-        />
-        <div className=" flex gap-3">
-          <Button type="submit" className="w-20">
-            Submit
-          </Button>
-          <Button onClick={deleteAll} variant={"destructive"} className="w-24 ">
-            Delete All
-          </Button>
-        </div>
+    <form className="flex" onSubmit={handleSubmit}>
+      <Input
+        required
+        onChange={handleText}
+        type="text"
+        value={text}
+        placeholder="Type your Todo"
+        className="w-52 "
+      />
+      <Input
+        required
+        onChange={handleTime}
+        value={time}
+        type="datetime-local"
+        className="w-52 mx-5"
+      />
+      <div className=" flex gap-3">
+        <Button type="submit" className="w-20">
+          Submit
+        </Button>
+        <Button onClick={deleteAll} variant={"destructive"} className="w-24 ">
+          Delete All
+        </Button>
       </div>
     </form>
   );
