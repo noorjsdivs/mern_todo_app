@@ -29,7 +29,7 @@ const TodoList = () => {
         </div>
       </div>
       {removeAllTodo && (
-        <div className="absolute inset-y-0 mt-10">
+        <div className="absolute inset-y-0 mt-10 text-white/90">
           <div className=" bg-teal-700 rounded-lg shadow-lg drop-shadow-lg shadow-slate-400 p-4">
             <h1 className="text-xl">Do you want to remove all Todo?</h1>
             <div className="flex justify-around items-center my-3">
