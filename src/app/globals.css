@@ -28,7 +28,7 @@ body {
 
 @layer components {
   .listTop {
-    @apply absolute top-0 left-0 translate-y-0 group-hover:-translate-y-[100%] transition-transform ease-in-out duration-300;
+    @apply absolute top-0 left-0 translate-y-0 text-black group-hover:-translate-y-[100%] transition-transform ease-in-out duration-300;
   }
   .listBottom {
     @apply absolute top-0 left-0 translate-y-[100%] group-hover:translate-y-0 transition-transform ease-in-out duration-300;
