@@ -1,38 +1,64 @@
-import React from 'react';
+"use client";
+import { addTodo } from "@/redux/todoSlice";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { IoIosClose } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { removeTodo } from "@/redux/todoSlice";
+import TodoList from "./TodoList";
 
 const InputForm = () => {
+    const [todo, setTodo] = useState("");
+    const [showRemoved, setRemoved] = useState(false);
+
+
+    const dispatch = useDispatch()
+
+    const handleSubmit = (e: ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        if (todo === "") {
+            toast.error("add todo")
+        } else {
+            dispatch(addTodo({ _id: Math.random().toString(), todo: todo }));
+            setTodo("")
+            toast.success("add success")
+        }
+    }
     return (
-        <div>
+        <div className="bg-slate-500 p-4 md:p-10 lg:p-6 rounded-md mx-4">
+            {/* todo form */}
+            <form onSubmit={handleSubmit} className="flex relative items-center h-10 gap-3">
 
-            <h1 className='text-2xl font-bold mb-6'>Employee Info</h1>
-            <form className="max-w-md">
-                <div className="relative z-0 w-full mb-5 group">
-                    <input type="password" name="repeat_password" id="floating_repeat_password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label htmlFor="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
-                </div>
-                <div className="grid md:grid-cols-2 md:gap-6">
-                    <div className="relative z-0 w-full mb-5 group">
-                        <input type="text" name="floating_first_name" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
-                    </div>
-                    <div className="relative z-0 w-full mb-5 group">
-                        <input type="text" name="floating_last_name" id="floating_last_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label htmlFor="floating_last_name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
-                    </div>
-                </div>
-                <div className="grid md:grid-cols-2 md:gap-6">
-                    <div className="relative z-0 w-full mb-5 group">
-                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label htmlFor="floating_phone" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number </label>
-                    </div>
-                    <div className="relative z-0 w-full mb-5 group">
-                        <input type="text" name="floating_company" id="floating_company" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label htmlFor="floating_company" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company (Ex. Google)</label>
-                    </div>
-                </div>
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                <input
+                    onChange={(e) => setTodo(e.target.value)}
+                    value={todo}
+                    placeholder="Enter your todo"
+                    type="text"
+                    className="h-full text-black/50   border-2 outline-none rounded-md flex-1 text-base placeholder:text-xs focus-visible:border-green-500 hover:border-green-500 duration-3000 pl-2"
+                />
+                {todo && <IoIosClose onClick={() => setTodo("")} className=" absolute right-36 text-black/50  text-xl font-semibold hover:cursor-pointer hover:text-red-500 duration-300" />}
+
+                <button className="bg-green-600 h-full px-4 py-2 text-xs md:text-base uppercase text-white rounded-md">
+                    Add Todo
+                </button>
+
             </form>
-
+            {/* todo list */}
+            <div className="flex flex-col gap-4 ">
+                <TodoList />
+            </div>
+            <div className="relative">
+                <button onClick={() => setRemoved(dispatch(removeTodo))} className="  text-slate-300  hover:bg-slate-200 hover:text-red-600 duration-300 border p-2 shadow-inner shadow-red-200 rounded-md border-red-500 mt-2">
+                    Remove todo
+                </button>
+                {showRemoved && <div className=" border bg-black/50 text-yellow-500 shadow-md shadow-red-200 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-2 rounded-lg mt-2">
+                    <p>Are you sure want to remove</p>
+                    <div className="flex justify-center gap-6">
+                        <button onClick={() => setRemoved(false)} className="bg-red-600 px-2  border border-red-500 rounded-md">No</button>
+                        <button onClick={() => setRemoved(true)} className="bg-green-600 px-2  rounded-md">Yes</button>
+                    </div>
+                </div>}
+            </div>
         </div>
     );
 };

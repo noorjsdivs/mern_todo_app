@@ -1,16 +1,19 @@
-import InputForm from '@/components/InputForm';
-import TodoList from '@/components/TodoList';
-import React from 'react';
+import InputForm from '@/components/InputForm'
+import { Metadata } from 'next';
+import React from 'react'
 
+export const metadata: Metadata = {
+  title: "Home | todo application",
+  description: "todo application",
+};
 const HomePage = () => {
   return (
-    <div className='max-w-screen-2xl'>
-      <div className='flex justify-between max-w-screen-lg my-8 mx-auto border p-8'>
+    <div className='w-full min-h-screen flex flex-col items-center bg-gradient-to-r from-green-200 via-blue-200 to-blue-200 '>
+      <div className=' w-full max-w-screen-md mx-2 flex flex-col rounded-md gap-5 mt-4'>
         <InputForm />
-        <TodoList/>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

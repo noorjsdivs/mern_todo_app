@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import Layout from "@/components/Layout";
+
 
 export const metadata: Metadata = {
-  title: "Todo Application using Next js",
-  description: "A todo application for education purpose",
+  title: "todo",
+  description: "todo application",
 };
 
 export default function RootLayout({
@@ -25,10 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        classNameName={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="font-bodyFont">
+        <Layout>
+          {children}
+          <Toaster toastOptions={{
+            position: "top-right",
+            duration: 1000
+          }} />
+        </Layout>
       </body>
     </html>
   );
