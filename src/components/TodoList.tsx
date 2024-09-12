@@ -15,7 +15,7 @@ const TodoList = () => {
     <div className="flex w-full flex-col gap-4 mt-4  border-gray-300 rounded-md ">
       {todoList?.length > 0 && (
         <div className="">
-          <ul className="max-h-72 overflow-scroll border border-slate-600 p-2 shadow-lg shadow-gray-800 gap-4">
+          <ul className="max-h-72 overflow-x-auto border border-slate-600 p-2 shadow-lg shadow-gray-800 gap-4">
             {todoList?.length > 0 && (
               <>
                 {todoList?.map((item, index) => (
