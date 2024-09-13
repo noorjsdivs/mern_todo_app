@@ -1,9 +1,8 @@
-import Container from "@/components/Container"
 
 
 const page = () => {
   return (
-    <Container>Comming Soon...</Container>
+    <div>Comming Soon...</div>
   )
 }
 

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
 import Layout from "@/layout/Layout";
 import { Toaster } from "react-hot-toast";
+import LeftSideNav from "@/components/LeftSideNav";
+import RightSideNav from "@/components/RightSideNav";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,15 +29,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light">
-      <body 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-slate-200 to-yellow-50`}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <Layout >
-          <Header />
-          {children}
-          <Toaster
-          position="bottom-right"
-          />
+        <Layout>
+          <div className="grid grid-cols-12">
+            <div className="col-span-2">
+              <LeftSideNav />
+            </div>
+            <div className="col-span-8"> {children}</div>
+            <div className="col-span-2">
+              <RightSideNav />
+            </div>
+          </div>
+          <Toaster position="bottom-right" />
         </Layout>
       </body>
     </html>
