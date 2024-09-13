@@ -18,7 +18,7 @@ const TodoList = () => {
       <div
         className={` ${
           pathName === "/"
-            ? todoList?.length > 5 && "h-80 overflow-x-scroll"
+            ? todoList?.length > 5 && "h-80 overflow-scroll"
             : "h-auto"
         } `}
       >
