@@ -1,14 +1,34 @@
 import { configureStore } from '@reduxjs/toolkit'
 import todoReducer from './todoSlice'
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  REGISTER,
+} from 'redux-persist'
+
+import storage from 'redux-persist/lib/storage'
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage
+}
+
+const persistedReducer = persistReducer(persistConfig, todoReducer);
 
 export const store = configureStore({
 
   reducer: {
-    todo: todoReducer,
+    todo: persistedReducer,
     
   },
 
 })
+
+export let persistor = persistStore(store);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
