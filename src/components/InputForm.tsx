@@ -48,14 +48,20 @@ const InputForm = () => {
                 <TodoList />
             </div>
             <div className="relative">
-                <button onClick={() => setRemoved(dispatch(removeTodo))} className="  text-slate-300  hover:bg-slate-200 hover:text-red-600 duration-300 border p-2 shadow-inner shadow-red-200 rounded-md border-red-500 mt-2">
+                <button onClick={() => setRemoved(true)} className="  text-slate-300  hover:bg-slate-200 hover:text-red-600 duration-300 border p-2 shadow-inner shadow-red-200 rounded-md border-red-500 mt-2">
                     Remove todo
                 </button>
                 {showRemoved && <div className=" border bg-black/50 text-yellow-500 shadow-md shadow-red-200 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-2 rounded-lg mt-2">
                     <p>Are you sure want to remove</p>
                     <div className="flex justify-center gap-6">
                         <button onClick={() => setRemoved(false)} className="bg-red-600 px-2  border border-red-500 rounded-md">No</button>
-                        <button onClick={() => setRemoved(true)} className="bg-green-600 px-2  rounded-md">Yes</button>
+                        <button
+                            // onClick={() => setRemoved(dispatch(removeTodo()))}
+                            onClick={() =>{
+                                setRemoved(false),
+                                dispatch(removeTodo())
+                                
+                                } } className="bg-green-600 px-2  rounded-md">Yes</button>
                     </div>
                 </div>}
             </div>
