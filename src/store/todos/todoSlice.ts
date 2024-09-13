@@ -9,7 +9,7 @@ interface Todo {
 }
 
 // Define the initial state type as an array of Todo items
-type TodoState = Todo[];
+export type TodoState = Todo[];
 
 // Initial state (empty array of Todo items)
 const initialState: TodoState = [];
