@@ -3,7 +3,7 @@ import { store } from "@/store/store";
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
-import Loding from "./LodingTodos";
+import Loding from "../components/LodingTodos";
 
 const ProviderStore = ({ children }: { children: React.ReactNode }) => {
   const persistor = persistStore(store);

@@ -1,6 +1,6 @@
 import React from "react";
-import Todos from "./todos";
-import TodosList from "./TodosList";
+import Todos from "../components/todos";
+import TodosList from "../components/TodosList";
 import { ToastContainer } from "react-toastify";
 
 const page = () => {
