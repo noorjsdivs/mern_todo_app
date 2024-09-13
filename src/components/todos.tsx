@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { addTodo, deleteAllTodo } from "@/store/todos/todoSlice";
+import { addTodo } from "@/store/todos/todoSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
@@ -27,15 +27,10 @@ function Home() {
     });
 
     setText("");
+    setTime('')
   }
 
-  function deleteAll() {
-    toast.success("Todo Added", {
-      autoClose: 1500,
-      position: "bottom-right",
-    });
-    dispatch(deleteAllTodo());
-  }
+
   return (
     <form className="flex" onSubmit={handleSubmit}>
       <Input
@@ -57,9 +52,7 @@ function Home() {
         <Button type="submit" className="w-20">
           Submit
         </Button>
-        <Button onClick={deleteAll} variant={"destructive"} className="w-24 ">
-          Delete All
-        </Button>
+       
       </div>
     </form>
   );

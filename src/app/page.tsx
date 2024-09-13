@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 const page = () => {
   return (
     <>
-      <div className="flex  justify-center my-14 items-center">
+      <div className="flex  justify-center my-8 items-center">
         <Todos />{" "}
       </div>
       <div>
