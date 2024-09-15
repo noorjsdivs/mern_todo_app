@@ -1,6 +1,7 @@
 "use client";
 
 import { deleteTodo, resetTodo } from "@/app/redux/TodoSlice";
+import toast from "react-hot-toast";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { FaRegStar } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
@@ -16,10 +17,14 @@ const Todos = () => {
     currentDate.getMonth() + 1
   }/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 
-  const deleteAllTodo = () => {
-    window.confirm("Are you sure to delete all todos...");
-    dispatch(resetTodo())
-  }
+  const handleResetTodo = () => {
+    const isConfirm = window.confirm("Are you sure to delete all todos...");
+    if (isConfirm) {
+      dispatch(resetTodo());
+      toast.success("All todos deleted.!");
+    } else toast.error("Action canceled.!");
+  };
+
   return (
     <>
       {todo &&
@@ -60,7 +65,7 @@ const Todos = () => {
           </div>
         ))}
       {todo?.length > 1 && (
-        <button onClick={deleteAllTodo}
+        <button onClick={handleResetTodo}
           className="bg-TextColor h-10 w-60 rounded-md uppercase text-white font-semibold"
           
         >

@@ -8,13 +8,15 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { addTodo } from "@/app/redux/TodoSlice";
+import { addTodo,  } from "@/app/redux/TodoSlice";
+import { useTheme } from "./ThemeContext";
 
 const LeftSideNav = () => {
   const [todo, setTodo] = useState("");
-
+  
   const pathname = usePathname();
   const dispatch = useDispatch();
+  const { theme } = useTheme();
 
   const menus = [
     { title: "all tasks", link: "/" },
@@ -23,20 +25,21 @@ const LeftSideNav = () => {
     { title: "uncompleted tasks", link: "/uncompleted-tasks" },
   ];
 
-  const handleSubmit = (e: Event) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (todo?.length === 0) {
       toast.error("Enter Todo.!");
     } else {
-      dispatch(addTodo({_id:Math.random().toString(), todo}));
+      dispatch(addTodo({ _id: Math.random().toString(), todo }));
       toast.success("Todo added.!");
       setTodo("");
     }
   };
 
+
   return (
     <>
-      <div className="flex flex-col gap-8 w-full py-10 pl-3 bg-slate-100 h-screen">
+      <div className={`flex flex-col gap-8 w-full py-10 pl-3 h-screen ${theme === 'dark' ? 'bg-slate-900' : 'bg-slate-100'}`}>
         <p className="text-2xl font-semibold uppercase text-center text-gray-600">
           to-do list
         </p>
@@ -64,9 +67,7 @@ const LeftSideNav = () => {
           ))}
         </div>
       </div>
-      {/* The button to open modal */}
 
-      {/* Put this part before </body> tag */}
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box relative ">
@@ -80,10 +81,11 @@ const LeftSideNav = () => {
                 placeholder="Add todo name..."
                 className="outline-none border border-primaryColor rounded-md h-14 w-96 mt-3 px-5 ml-4 pe-10"
                 value={todo}
-                onChange={(e) => setTodo(e.target.value)}required
+                onChange={(e) => setTodo(e.target.value)}
+                required
               />
               <div className="h-8 -mt-3 border-primaryColor">
-                <LocalizationProvider dateAdapter={AdapterDayjs} required>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker />
                 </LocalizationProvider>
               </div>

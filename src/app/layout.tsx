@@ -5,6 +5,7 @@ import Layout from "@/layout/Layout";
 import { Toaster } from "react-hot-toast";
 import LeftSideNav from "@/components/LeftSideNav";
 import RightSideNav from "@/components/RightSideNav";
+import { ThemeProvider } from "@/components/ThemeContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,18 +33,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <Layout>
-          <div className="grid grid-cols-12">
-            <div className="col-span-2">
-              <LeftSideNav />
+        <ThemeProvider>
+          <Layout>
+            <div className="grid grid-cols-12">
+              <div className="col-span-2">
+                <LeftSideNav />
+              </div>
+              <div className="col-span-8"> {children}</div>
+              <div className="col-span-2">
+                <RightSideNav />
+              </div>
             </div>
-            <div className="col-span-8"> {children}</div>
-            <div className="col-span-2">
-              <RightSideNav />
-            </div>
-          </div>
-          <Toaster position="bottom-right" />
-        </Layout>
+            <Toaster />
+          </Layout>
+        </ThemeProvider>
       </body>
     </html>
   );

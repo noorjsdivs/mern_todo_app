@@ -1,12 +1,14 @@
+
+import Container from "@/components/Container";
+import { useTheme } from "@/components/ThemeContext";
 import Todos from "@/components/Todos";
-import { BiDotsVerticalRounded } from "react-icons/bi";
+// import { BiDotsVerticalRounded } from "react-icons/bi";
 import { CiCircleList } from "react-icons/ci";
-import { FaRegStar, FaStar } from "react-icons/fa";
+// import { FaRegStar, FaStar } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { IoGrid } from "react-icons/io5";
-import { MdOutlineDateRange } from "react-icons/md";
+// import { MdOutlineDateRange } from "react-icons/md";
 import { PiBellRingingFill } from "react-icons/pi";
-import { RiDeleteBinLine } from "react-icons/ri";
 
 export default function Home() {
   const currentDate: Date = new Date();
@@ -16,13 +18,13 @@ export default function Home() {
   }/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 
   return (
-    <div className="bg-gray-200 w-full px-5 min-h-screen">
+    <Container>
       <div className="flex items-center justify-between py-10">
         <div className="relative">
           <input
             type="text"
             placeholder="Search task..."
-            className="h-10 w-72 text-gray-500 outline-none  rounded-md  px-4" 
+            className="h-10 w-72 text-gray-500 outline-none  rounded-md  px-4"
           />
           <span className="absolute top-3 right-2 text-gray-600 inline-block">
             <FiSearch />
@@ -34,9 +36,15 @@ export default function Home() {
           <span className="text-primaryColor text-2xl">
             <PiBellRingingFill />
           </span>
-          <button className="bg-primaryColor text-white font-semibold text-md capitalize px-6 py-2 rounded-md">
-            add new task
-          </button>
+          <div>
+            {" "}
+            <label
+              htmlFor="my_modal_7"
+              className=" btn bg-primaryColor/90 hover:bg-primaryColor hover:scale-110 px-5  py-3 -ml-3 rounded-md text-white capitalize font-semibold w-40"
+            >
+              add new task
+            </label>
+          </div>
         </div>
       </div>
       <div>
@@ -56,7 +64,6 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-5">
         <Todos />
       </div>
-      
-    </div>
+    </Container>
   );
 }

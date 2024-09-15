@@ -6,6 +6,7 @@ import { BiDotsVerticalRounded } from "react-icons/bi";
 import { FaRegStar } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 import { RiDeleteBinLine } from "react-icons/ri";
+import toast from "react-hot-toast";
 
 const UncompletedTasks = () => {
   const { todo } = useSelector((state: any) => state?.todo);
@@ -17,15 +18,20 @@ const UncompletedTasks = () => {
   }/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 
   const deleteAllTodo = () => {
-    window.confirm("Are you sure to delete all todos...");
-    dispatch(resetTodo());
+    const isConfirm = window.confirm("Are you sure to delete all todos...");
+    if (isConfirm) {
+      dispatch(resetTodo());
+      toast.success("All todos deleted.!");
+    } else toast.success("Action canceled.!");
   };
   return (
     <div className="py-10  bg-slate-200 min-h-screen p-10">
-        <h3 className="text-3xl font-semibold text-center mb-20 underline">Uncompleted Tasks.!</h3>
+      <h3 className="text-3xl font-semibold text-center mb-20 underline">
+        Uncompleted Tasks.!
+      </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {todo &&
-          todo?.map((item: string, index: number) => (
+          todo?.map((item: any, index: number) => (
             <div
               key={index}
               className="bg-primaryColor w-full h-60 p-3 rounded-md flex flex-col justify-between "
