@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteTodo, resetTodo } from "@/app/redux/TodoSlice";
+import { addToFavorite, deleteTodo, resetTodo } from "@/app/redux/TodoSlice";
 import toast from "react-hot-toast";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { FaRegStar } from "react-icons/fa";
@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Todos = () => {
   const { todo } = useSelector((state: any) => state?.todo);
+  const  {favorite}  = useSelector((state: any) => state?.todo );
+  console.log("favorite", favorite);
   const dispatch = useDispatch();
   const currentDate: Date = new Date();
 
@@ -24,11 +26,20 @@ const Todos = () => {
       toast.success("All todos deleted.!");
     } else toast.error("Action canceled.!");
   };
+  const handleFavorite = (item: any) => {
+    const existingitem = favorite.find((todo: any) => todo?._id === item?._id);
+    if (existingitem) {
+      toast.error("Item already added to favorite.!");
+    } else {
+      dispatch(addToFavorite({_id:Math.random().toLocaleString(), item}));
+      toast.success("Todo add to favorite.!");
+    }
+  };
 
   return (
     <>
       {todo &&
-        todo?.map((item: string, index: number) => (
+        todo?.map((item: any, index: number) => (
           <div
             key={index}
             className="bg-primaryColor w-full h-60 p-3 rounded-md flex flex-col justify-between "
@@ -47,7 +58,10 @@ const Todos = () => {
                   Uncompleted
                 </button>
                 <div className="flex items-center gap-2 text-white text-xl">
-                  <span>
+                  <span
+                    className="hover:text-red-500 hover:scale-110 cursor-pointer"
+                    onClick={() => handleFavorite(item)}
+                  >
                     <FaRegStar />
                   </span>
                   <span
@@ -65,9 +79,9 @@ const Todos = () => {
           </div>
         ))}
       {todo?.length > 1 && (
-        <button onClick={handleResetTodo}
+        <button
+          onClick={handleResetTodo}
           className="bg-TextColor h-10 w-60 rounded-md uppercase text-white font-semibold"
-          
         >
           delete all todo
         </button>

@@ -3,13 +3,25 @@ import "./Loading.css";
 const Loading = () => {
   return (
     <div className="flex items-center justify-center min-h-screen w-full">
-      <div className="pyramid-loader ">
-        <div className="wrapper flex items-center justify-center w-full">
-          <span className="side side1"></span>
-          <span className="side side2"></span>
-          <span className="side side3"></span>
-          <span className="side side4"></span>
-          <span className="shadow"></span>
+   
+      <div className="wrapper">
+        <div className="cloud">
+          <div className="cloud_left"></div>
+          <div className="cloud_right"></div>
+        </div>
+        <div className="rain">
+          <div className="drop"></div>
+          <div className="drop"></div>
+          <div className="drop"></div>
+          <div className="drop"></div>
+          <div className="drop"></div>
+        </div>
+        <div className="surface">
+          <div className="hit"></div>
+          <div className="hit"></div>
+          <div className="hit"></div>
+          <div className="hit"></div>
+          <div className="hit"></div>
         </div>
       </div>
     </div>
